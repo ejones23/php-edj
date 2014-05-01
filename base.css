@@ -1,0 +1,36 @@
+body
+{
+   background-color:#33cccc;
+}
+h1
+{
+   text-align:center;
+}
+.menu
+{
+   float:left;
+   margin-top:30px;
+   margin-left:235px;
+   padding-left:50px;
+   padding-right:15px;
+   background-color:#1d7373;
+}
+.right
+{
+   float:right;
+   padding-right:60px;
+}
+.middle
+{
+   float:left;
+   margin-left:15px;
+   padding-left:15px;
+   padding-right:15px;
+   border:2px solid;
+   background-color:#009999;
+   box-shadow: 10px 10px 5px #006363;
+}
+p.bio
+{
+   width:500px;
+}
