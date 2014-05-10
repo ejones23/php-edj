@@ -1,0 +1,233 @@
+Computer Engineering|Linux|1|Yes
+Electrical Engineering|Macintosh|1|Yes
+Computer Science|Windows|1|Yes
+Software Engineering|Other|1|No
+Other|Linux|1|Yes
+Computer Information Technology|Windows|1|Yes
+Electrical Engineering|Other|2|Yes
+Computer Engineering|Windows|2|No
+Computer Science|Windows|2|Yes
+Software Engineering|Linux|2|Yes
+Electrical Engineering|Linux|2|Yes
+Computer Science|Windows|2|No
+Software Engineering|Windows|9|Yes
+Computer Science|Linux|9|Yes
+Electrical Engineering|Other|9|Yes
+Computer Information Technology|Windows|9|Yes
+Electrical Engineering|Macintosh|9|No
+Software Engineering|Other|9|No
+Computer Science|Macintosh|9|Yes
+Other|Macintosh|9|Yes
+Electrical Engineering|Windows|9|Yes
+Computer Engineering|Other|9|Yes
+Computer Information Technology|Linux|9|Yes
+Computer Science|Windows|9|No
+Other|Macintosh|9|Yes
+Computer Engineering|Windows|9|Yes
+Electrical Engineering|Windows|9|Yes
+Software Engineering|Macintosh|9|No
+Other|Linux|6|Yes
+Computer Science|Other|10|Yes
+Electrical Engineering|Windows|9|Yes
+Software Engineering|Linux|9|No
+Software Engineering|Other|10|Yes
+Computer Science|Windows|9|Yes
+Electrical Engineering|Windows|8|Yes
+Computer Information Technology|Macintosh|9|No
+Computer Engineering|Linux|3|No
+Computer Science|Macintosh|3|Yes
+Software Engineering|Linux|7|No
+Electrical Engineering|Windows|5|Yes
+Electrical Engineering|Windows|4|No
+Computer Information Technology|Windows|3|No
+Computer Engineering|Macintosh|6|No
+Computer Science|Macintosh|3|Yes
+Other|Windows|7|No
+Software Engineering|Windows|2|Yes
+Computer Engineering|Macintosh|3|No
+Computer Information Technology|Linux|3|Yes
+Computer Information Technology|Other|3|Yes
+Computer Information Technology|Macintosh|3|No
+Computer Science|Windows|7|No
+Other|Macintosh|7|No
+Electrical Engineering|Windows|3|Yes
+Computer Science|Macintosh|3|No
+Computer Information Technology|Other|3|Yes
+Computer Science|Windows|3|No
+Software Engineering|Linux|3|No
+Computer Science|Macintosh|3|No
+Computer Engineering|Windows|3|No
+Electrical Engineering|Windows|6|Yes
+Computer Information Technology|Other|1|Yes
+Electrical Engineering|Macintosh|1|Yes
+Software Engineering|Windows|1|Yes
+Other|Other|4|No
+Computer Science|Linux|1|Yes
+Computer Engineering|Windows|1|Yes
+Electrical Engineering|Linux|2|Yes
+Computer Engineering|Windows|2|No
+Electrical Engineering|Windows|2|Yes
+Computer Information Technology|Other|2|Yes
+Computer Science|Linux|2|Yes
+Computer Engineering|Windows|2|No
+Electrical Engineering|Linux|9|Yes
+Other|Other|10|Yes
+Computer Information Technology|Linux|9|Yes
+Electrical Engineering|Windows|9|Yes
+Computer Engineering|Macintosh|9|No
+Software Engineering|Windows|9|No
+Other|Other|10|Yes
+Software Engineering|Macintosh|9|Yes
+Electrical Engineering|Macintosh|9|Yes
+Electrical Engineering|Windows|9|Yes
+Computer Science|Macintosh|9|Yes
+Other|Linux|9|Yes
+Computer Science|Windows|9|No
+Other|Macintosh|9|Yes
+Computer Information Technology|Windows|9|Yes
+Software Engineering|Windows|9|Yes
+Computer Engineering|Macintosh|9|No
+Electrical Engineering|Linux|6|Yes
+Software Engineering|Macintosh|10|Yes
+Computer Engineering|Macintosh|9|No
+Electrical Engineering|Linux|6|Yes
+Other|Macintosh|10|Yes
+Computer Information Technology|Windows|9|Yes
+Electrical Engineering|Linux|9|No
+Computer Information Technology|Other|9|Yes
+Software Engineering|Windows|8|Yes
+Computer Science|Macintosh|9|No
+Software Engineering|Linux|3|No
+Other|Macintosh|3|Yes
+Electrical Engineering|Linux|7|No
+Computer Engineering|Windows|5|Yes
+Software Engineering|Other|4|No
+Computer Science|Windows|3|No
+Computer Science|Macintosh|6|No
+Electrical Engineering|Macintosh|3|Yes
+Computer Science|Windows|7|No
+Electrical Engineering|Other|2|Yes
+Computer Engineering|Other|3|No
+Computer Information Technology|Linux|6|Yes
+Computer Engineering|Linux|1|Yes
+Electrical Engineering|Macintosh|1|Yes
+Computer Science|Other|1|Yes
+Software Engineering|Other|1|No
+Other|Linux|1|Yes
+Computer Information Technology|Windows|1|Yes
+Electrical Engineering|Linux|2|Yes
+Computer Engineering|Windows|2|No
+Computer Science|Windows|2|Yes
+Software Engineering|Linux|2|Yes
+Electrical Engineering|Linux|2|Yes
+Computer Science|Windows|2|No
+Software Engineering|Windows|9|Yes
+Computer Science|Linux|9|Yes
+Electrical Engineering|Linux|9|Yes
+Computer Information Technology|Windows|9|Yes
+Electrical Engineering|Macintosh|9|No
+Software Engineering|Windows|9|No
+Computer Science|Macintosh|9|Yes
+Other|Macintosh|9|Yes
+Electrical Engineering|Windows|9|Yes
+Computer Engineering|Macintosh|9|Yes
+Computer Information Technology|Linux|9|Yes
+Computer Science|Windows|9|No
+Other|Macintosh|9|Yes
+Computer Engineering|Windows|9|Yes
+Electrical Engineering|Windows|9|Yes
+Software Engineering|Macintosh|9|No
+Other|Linux|6|Yes
+Computer Science|Macintosh|10|Yes
+Electrical Engineering|Windows|9|Yes
+Software Engineering|Other|9|No
+Software Engineering|Other|10|Yes
+Computer Science|Windows|9|Yes
+Electrical Engineering|Windows|8|Yes
+Computer Information Technology|Macintosh|9|No
+Computer Engineering|Linux|3|No
+Computer Science|Macintosh|3|Yes
+Software Engineering|Linux|7|No
+Electrical Engineering|Other|5|Yes
+Electrical Engineering|Windows|4|No
+Computer Information Technology|Windows|3|No
+Computer Engineering|Macintosh|6|No
+Computer Science|Macintosh|3|Yes
+Other|Windows|7|No
+Software Engineering|Other|2|Yes
+Computer Engineering|Macintosh|3|No
+Computer Information Technology|Linux|3|Yes
+Computer Information Technology|Other|3|Yes
+Computer Information Technology|Macintosh|3|No
+Computer Science|Windows|7|No
+Other|Macintosh|7|No
+Electrical Engineering|Windows|3|Yes
+Computer Science|Macintosh|3|No
+Computer Information Technology|Windows|3|Yes
+Computer Science|Windows|3|No
+Software Engineering|Linux|3|No
+Computer Science|Macintosh|3|No
+Computer Engineering|Windows|3|No
+Electrical Engineering|Windows|6|Yes
+Computer Information Technology|Linux|1|Yes
+Electrical Engineering|Macintosh|1|Yes
+Software Engineering|Windows|1|Yes
+Other|Other|4|No
+Computer Science|Linux|1|Yes
+Computer Engineering|Windows|1|Yes
+Electrical Engineering|Linux|2|Yes
+Computer Engineering|Windows|2|No
+Electrical Engineering|Windows|2|Yes
+Computer Information Technology|Linux|2|Yes
+Computer Science|Linux|2|Yes
+Computer Engineering|Windows|2|No
+Electrical Engineering|Linux|9|Yes
+Other|Other|10|Yes
+Computer Information Technology|Linux|9|Yes
+Electrical Engineering|Windows|9|Yes
+Computer Engineering|Macintosh|9|No
+Software Engineering|Windows|9|No
+Other|Other|10|Yes
+Software Engineering|Macintosh|9|Yes
+Electrical Engineering|Other|9|Yes
+Electrical Engineering|Windows|9|Yes
+Computer Science|Other|9|Yes
+Other|Linux|9|Yes
+Computer Science|Windows|9|No
+Other|Macintosh|9|Yes
+Computer Information Technology|Windows|9|Yes
+Software Engineering|Windows|9|Yes
+Computer Engineering|Macintosh|9|No
+Electrical Engineering|Linux|6|Yes
+Software Engineering|Macintosh|10|Yes
+Computer Engineering|Other|9|No
+Electrical Engineering|Linux|6|Yes
+Other|Macintosh|10|Yes
+Computer Information Technology|Other|9|Yes
+Electrical Engineering|Linux|9|No
+Computer Information Technology|Windows|9|Yes
+Software Engineering|Other|8|Yes
+Computer Science|Macintosh|9|No
+Software Engineering|Linux|3|No
+Other|Macintosh|3|Yes
+Electrical Engineering|Linux|7|No
+Computer Engineering|Windows|5|Yes
+Software Engineering|Windows|4|No
+Computer Science|Windows|3|No
+Computer Science|Macintosh|6|No
+Electrical Engineering|Macintosh|3|Yes
+Computer Science|Other|7|No
+Electrical Engineering|Other|2|Yes
+Computer Engineering|Macintosh|3|No
+Computer Information Technology|Linux|6|Yes
+Computer Information Technology|Linux|6|Yes
+Computer Information Technology|Linux|6|Yes
+Computer Information Technology|Linux|2|No
+Computer Information Technology|Macintosh|1|No
+Computer Information Technology|Macintosh|10|Yes
+Computer Information Technology|Macintosh|10|Yes
+Computer Information Technology|Macintosh|9|Yes
+Computer Engineering|Linux|1|Yes
+Computer Engineering|Other|4|Yes
+Computer Information Technology|Macintosh|8|Yes
+Computer Information Technology|Macintosh|8|Yes
