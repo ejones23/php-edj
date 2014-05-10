@@ -53,7 +53,7 @@
               <li><a href="results.php">View Survey Results</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="#">Emmanuel Jones Home</a></li>            <!--FIX THIS!!!-->
+              <li><a href="index.php">Emmanuel Jones Home</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
