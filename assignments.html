@@ -4,28 +4,33 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="base.css"/>
   <title>Assignments Page: Emmanuel Jones</title>
 </head>
 <body>
-   <h1>Emmanuel Jones' Assignments Page</h1><hr/>
-   
    <div class="container">
-      <div class="col-md-2"></div>
+      <!-- Static navbar -->
+      <div class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="index.php">Emmanuel Home</a>
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="assignments.html">Assignments Page</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </div>
       
-      <div class="col-md-1">
-         <div class="menu">
-            <a href="index.php">About me</a><br/>
-            <a href="assignments.html">Assignments</a>
-         </div>
-      </div><!--/.col-md-1-->
+      <div class='col-md-2'></div><!--to scoot it over-->
       
-      <div class="col-md-5">
-         <div class="middle">
-            <a href="survey.php">PHP Survey</a><br />
-            <a href="festival.html">Music Festival</a><br />
-         </div>
-      </div><!--/.col-md-5-->
+      <div class='col-md-8'>
+         <div class="jumbotron">
+            <h1>CS 313 Assignments</h1>
+               <p><a href="survey.php">PHP Survey</a></p>
+               <p><a href="festival.html">Music Festival</a></p>
+         </div><!--/.jumbotron-->
+      </div><!--/.col-md-8-->
    </div><!--/.container-->
 </body>
 </html>
