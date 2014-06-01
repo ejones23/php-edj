@@ -5,7 +5,7 @@
       <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script src="form.js"></script>
       <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
-      <base href="http://localhost:8880/ejones/festival/"/><!--eliminate for OpenShift-->
+      <!--<base href="http://localhost:8880/ejones/festival/"/><!--eliminate for OpenShift-->
       <script>
          function prep()
          {
