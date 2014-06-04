@@ -5,7 +5,7 @@
       <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script src="form.js"></script>
       <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
-      <!--<base href="http://localhost:8880/ejones/festival/"/><!--eliminate for OpenShift-->
+      <base href="http://localhost:8880/ejones/festival/"/><!--eliminate for OpenShift-->
       <script>
          function prep()
          {
@@ -183,7 +183,6 @@
    if(isset($_POST['sendData']))
    {
       try {
-      $success=false;
       //insert new registry
       $firstName = $_POST['firstName'];
       $lastName = $_POST['lastName'];
@@ -201,7 +200,7 @@
       $statement->bindvalue(":firstName", $firstName, PDO::PARAM_STR);
       $statement->bindvalue(":lastName", $lastName, PDO::PARAM_STR);
       $statement->bindvalue(":level", $level, PDO::PARAM_INT);
-      $statement->execute();
+      $success = $statement->execute();
       
       //$statement->debugDumpParams();
       //echo var_export($statement->errorInfo());
@@ -215,12 +214,10 @@
       $statement->bindvalue(":room", $room, PDO::PARAM_STR);
       $statement->bindvalue(":type", $type, PDO::PARAM_STR);
       $statement->bindvalue(":dateTime", $dateTime, PDO::PARAM_INT);
-      $statement->execute();
+      $success += $statement->execute();//if either is non-zero, $success will (almost always) be false
       
       //$statement->debugDumpParams();
       //echo var_export($statement->errorInfo());
-      
-      //TODO: check for success
       
       echo '<script>alert("';
       if($success)
