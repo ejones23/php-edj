@@ -4,7 +4,6 @@
       <title>Festival Home</title>
       <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
-      <!--<base href="http://localhost:8880/ejones/festival/"/><!--eliminate for OpenShift-->
    </head>
 <body>
    <div class="container">
@@ -16,6 +15,7 @@
           </div>
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
+              <li><a href="login.php">Festival Login</a></li>
               <li><a href="register.php">Festival Registration</a></li>
               <li><a href="verify.php">Festival Verification</a></li>
             </ul>
@@ -26,11 +26,40 @@
         </div><!--/.container-fluid -->
       </div>
       
-      <h1>Welcome to the Music Festival home page!</h1>
+      <div class='col-md-2'>
+         <p>
+         "Don't only practice your art, 
+         but force your way into its secrets; 
+         art deserves that, 
+         for it and knowledge can raise man 
+         to the Divine."
+            <br /><i>-Beethoven</i></p>
+         <br />
+         <p>
+         "One good thing about music, 
+         when it hits you, 
+         you feel no pain."
+            <br /><i>-Bob Marley</i></p>
+      </div>
+      <div class="col-md-8">
+         <div class="jumbotron">
+         <h2>Welcome to the UVMTA Music Festival!</h2><br />
+         <p>You will need to login <a href='login.php'>here</a> before proceeding.</p>
+         </div><!--/.jumbotron -->
+         <div class="col-md-12">
+            <h3>What is the Upper Valley Music Teachers' Association (UVMTA)?</h3>
+            <p>Based in and around Rexburg, Idaho, 
+            this music teachers' association has been operating since 1941. 
+            Members include full-time, part-time, and student teachers.</p>
+            <h3>What is the UVMTA Junior Music Festival?</h3>
+            <p>Each year we hold Junior Music Festivals and a student Composition Festival. 
+            This year's festival will be held on <strong>July 14th, 2014</strong> at the BYU-Idaho campus.</p>
+         </div><!--/.col-md-9 -->
+      </div><!--/.col-md-9 -->
       
-      <!--"What is the UVMTA?
-Based in and around Rexburg, Idaho, this music teachers association has been operating since 1941. Members include full-time, part-time, and student teachers."
-      -->
+      <div class="col-md-2">
+         <img src="JuniorMusicPerformer.jpg" alt="Junior Music Performer"/>
+      </div>
    </div><!--/.container-->
 </body>
 </html>

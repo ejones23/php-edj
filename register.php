@@ -1,11 +1,18 @@
-<!DOCTYPE html>
+<?php
+   session_start();
+   if(!isset($_SESSION['loggedIn']))
+   {
+      header("Location: login.php");
+      die();
+   }
+?>
+<!DOCTYPE html> 
 <html>
    <head>
       <title>Festival Registry</title>
       <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script src="form.js"></script>
       <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
-      <base href="http://localhost:8880/ejones/festival/"/><!--eliminate for OpenShift-->
       <script>
          function prep()
          {
@@ -72,6 +79,12 @@
             }
          }  
       </script>
+      <?php
+         function JSAlert($message)
+         {
+            echo '<script>alert("' . $message . '");</script>';
+         }
+      ?>
    </head>
 <body onload="prep()">
    <div class="container">
@@ -83,6 +96,7 @@
           </div>
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
+              <li><a href="login.php">Festival Login</a></li>
               <li class="active"><a href="register.php">Festival Registration</a></li>
               <li><a href="verify.php">Festival Verification</a></li>
             </ul>
@@ -98,7 +112,7 @@
            <h1>Register Your Student:</h1>
            
            <div class="required-field-block">
-               <input type="text" name="firstName" placeholder="First Name" class="form-control">
+               <input type="text" id='firstName' name="firstName" placeholder="First Name" class="form-control">
                <br/>
            </div>
            
@@ -157,7 +171,9 @@
                <select name="location" class="form-control">
                <option>Location:</option>
                   <?php
-                     $statement = $db->query("SELECT b.name, r.room_num FROM building b INNER JOIN room r ON b.id=r.building_id;");    
+                     $statement = $db->query("SELECT b.name, r.room_num 
+                        FROM building b 
+                        INNER JOIN room r ON b.id=r.building_id;");    
                      while($row = $statement->fetch(PDO::FETCH_ASSOC))
                      {
                         echo "<option>".$row['name']. " " . $row['room_num'] . "</option>\n";
@@ -168,6 +184,7 @@
            </div>
            
            <!--TODO: add "Day" select list-->
+           <!--TODO: handle 'pm' entries in DB (e.g., '3:00 pm' should be '15:00:00')-->
            
            <div class="required-field-block">
                <select name="time" id="timeSlots" class="form-control">
@@ -182,54 +199,83 @@
 <?php
    if(isset($_POST['sendData']))
    {
+      if($_POST['sendData'] == 'Update')
+      {
+         //delete old performance
+         $oldID = $_POST['oldID'];
+         $statement = $db->prepare("DELETE FROM performance
+            WHERE student_id = (SELECT id FROM student WHERE student_id = :oldID)
+            ");
+         $statement->bindvalue(":oldID", $oldID, PDO::PARAM_INT);
+         $statement->execute();
+         // $statement->debugDumpParams();
+         // echo var_export($statement->errorInfo());
+         
+         //delete old student 
+         //TODO: use MySQL UPDATE instead. It makes a lot more sense here.
+         $statement = $db->prepare("DELETE FROM student WHERE student_id = :oldID");
+         $statement->bindvalue(":oldID", $oldID, PDO::PARAM_INT);
+         $statement->execute();
+         // $statement->debugDumpParams();
+         // echo var_export($statement->errorInfo());
+      }
+      
       try {
-      //insert new registry
-      $firstName = $_POST['firstName'];
-      $lastName = $_POST['lastName'];
-      $studentID = $_POST['studentID'];
-      $type = $_POST['type'];
-      $level = $_POST['level'];
-      $location = explode(" ", $_POST['location']);
-         $room = $location[count($location) - 1];
-         $building = implode(" ", array_slice($location, 0, -1));
-      $time = $_POST['time'];
-      
-      //add student if new (DB handles conditional)
-      $statement = $db->prepare("INSERT INTO student(student_id, first_name, last_name, skill_level) (SELECT :studentID, :firstName, :lastName, (SELECT id FROM skill_level WHERE name=:level) FROM dual WHERE NOT EXISTS (SELECT * FROM student WHERE student_id=:studentID));");
-      $statement->bindvalue(":studentID", $studentID, PDO::PARAM_INT);
-      $statement->bindvalue(":firstName", $firstName, PDO::PARAM_STR);
-      $statement->bindvalue(":lastName", $lastName, PDO::PARAM_STR);
-      $statement->bindvalue(":level", $level, PDO::PARAM_INT);
-      $success = $statement->execute();
-      
-      //$statement->debugDumpParams();
-      //echo var_export($statement->errorInfo());
-      
-      //add performance
-         $dateOnly='2014-07-14';//for testing only
-         $timeOnly=explode(" ", $time)[0] . ":00";
-         $dateTime=$dateOnly . " " . $timeOnly;
-      $statement = $db->prepare("INSERT INTO performance(student_id, room_id, instrument_id, time) values (:studentID, (SELECT id FROM room WHERE room_num=:room), (SELECT id FROM instrument WHERE type=:type), :dateTime);");
-      $statement->bindvalue(":studentID", $studentID, PDO::PARAM_INT);
-      $statement->bindvalue(":room", $room, PDO::PARAM_STR);
-      $statement->bindvalue(":type", $type, PDO::PARAM_STR);
-      $statement->bindvalue(":dateTime", $dateTime, PDO::PARAM_INT);
-      $success += $statement->execute();//if either is non-zero, $success will (almost always) be false
-      
-      //$statement->debugDumpParams();
-      //echo var_export($statement->errorInfo());
-      
-      echo '<script>alert("';
-      if($success)
-      {
-         echo 'Registration successful! Check the verification page for details.\n'; 
-      }
-      else 
-      {
-         echo 'Registration failed. Please check the data and try again.\n';//TODO: make this more helpful
-      }
-      echo '");</script>';
-      
+         //insert new registry
+         $firstName = $_POST['firstName'];
+         $lastName = $_POST['lastName'];
+         $studentID = $_POST['studentID'];
+         $type = $_POST['type'];
+         $level = $_POST['level'];
+         $location = explode(" ", $_POST['location']);
+            $room = $location[count($location) - 1];
+            $building = implode(" ", array_slice($location, 0, -1));
+         $time = $_POST['time'];
+         
+         //TODO: separate student insertion and performance insertion in UI for better cohesion
+         
+         //add student if new
+         $statement = $db->prepare("INSERT INTO student(student_id, first_name, last_name, skill_level) 
+            VALUES (:studentID, :firstName, :lastName, (SELECT id FROM skill_level WHERE name=:level));");
+         $statement->bindvalue(":studentID", $studentID, PDO::PARAM_INT);
+         $statement->bindvalue(":firstName", $firstName, PDO::PARAM_STR);
+         $statement->bindvalue(":lastName", $lastName, PDO::PARAM_STR);
+         $statement->bindvalue(":level", $level, PDO::PARAM_INT);
+         $success = $statement->execute();
+         
+         //$statement->debugDumpParams();
+         //echo var_export($statement->errorInfo());
+         
+         if(!$success) 
+         {
+            JSAlert('We couldn\'t insert that student\'s information into the database.\n'.
+            'Possibly, there already exists a student with that ID.\n'.
+            'Please check the information and try again.');
+         }
+         else 
+         {
+            //add performance
+               $dateOnly='2014-07-14';//stub date
+               $timeOnly=explode(" ", $time)[0] . ":00";
+               $dateTime=$dateOnly . " " . $timeOnly;
+            $statement = $db->prepare("INSERT INTO performance(student_id, room_id, instrument_id, time) 
+               VALUES (
+                  (SELECT id FROM student s WHERE s.student_id=:studentID), 
+                  (SELECT id FROM room WHERE room_num=:room), 
+                  (SELECT id FROM instrument WHERE type=:type), 
+                  :dateTime);");
+            $statement->bindvalue(":studentID", $studentID, PDO::PARAM_INT);
+            $statement->bindvalue(":room", $room, PDO::PARAM_STR);
+            $statement->bindvalue(":type", $type, PDO::PARAM_STR);
+            $statement->bindvalue(":dateTime", $dateTime, PDO::PARAM_INT);
+            $success = $statement->execute();
+            
+            //$statement->debugDumpParams();
+            //echo var_export($statement->errorInfo());
+            
+            if($success) JSAlert('Registration successful! Check the verification page for details.\n'); 
+            else JSAlert('Registration failed. Please check the data and try again.\n');//TODO: make this more helpful
+         }
       }
       catch (PDOException $ex)
       {

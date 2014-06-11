@@ -1,3 +1,11 @@
+<?php
+   session_start();
+   if(!isset($_SESSION['loggedIn']))
+   {
+      header("Location: login.php");
+      die();
+   }
+?>
 <!DOCTYPE html>
 <html>
    <head>
@@ -6,7 +14,6 @@
       <script src="form.js"></script>
       <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
       <link rel="stylesheet" href="form.css"/>
-      <!--<base href="http://localhost:8880/ejones/festival/"/><!--eliminate for OpenShift-->
       <script>
       function allFilled()
       {
@@ -42,7 +49,6 @@
       </script>
    </head>
 <body>
-
    <div class="container">
       <!-- Static navbar -->
       <div class="navbar navbar-default" role="navigation">
@@ -52,6 +58,7 @@
           </div>
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
+              <li><a href="login.php">Festival Login</a></li>
               <li><a href="register.php">Festival Registration</a></li>
               <li class="active"><a href="verify.php">Festival Verification</a></li>
             </ul>
@@ -67,21 +74,21 @@
            <h1>Verify Registration Info:</h1>
            
            <div class="required-field-block">
-               <input type="text" name="firstName" placeholder="First Name" class="form-control">
+               <input type="text" name="firstName" placeholder="First Name" class="form-control"/>
                <div class="required-icon">
                    <div class="text">*</div>
                </div>
            </div>
            
            <div class="required-field-block">
-               <input type="text" name="lastName" placeholder="Last Name" class="form-control">
+               <input type="text" name="lastName" placeholder="Last Name" class="form-control"/>
                <div class="required-icon">
                    <div class="text">*</div>
                </div>
            </div>
            
            <div class="required-field-block">
-               <input type="text" name="studentID" placeholder="Student ID" class="form-control">
+               <input type="text" name="studentID" placeholder="Student ID" class="form-control"/>
                <div class="required-icon">
                    <div class="text">*</div>
                </div>
@@ -103,7 +110,14 @@
       {
          $db = loadDatabase('music_festival');
          
-         $statement = $db->prepare("SELECT s.first_name, s.last_name, s.skill_level, i.type, b.name, r.room_num, p.time FROM student s INNER JOIN performance p ON p.student_id=s.student_id INNER JOIN instrument i ON i.id=p.instrument_id INNER JOIN room r ON p.room_id=r.id INNER JOIN building b ON r.building_id=b.id WHERE s.first_name=:firstName AND s.last_name=:lastName AND s.student_id=:studentID");
+         $statement = $db->prepare("SELECT s.first_name, s.last_name, s.student_id, sl.name AS skill_level, i.type, b.name AS building_name, r.room_num, p.time 
+            FROM student s 
+            INNER JOIN performance p ON p.student_id=s.id 
+            INNER JOIN instrument i ON i.id=p.instrument_id 
+            INNER JOIN room r ON p.room_id=r.id 
+            INNER JOIN building b ON r.building_id=b.id 
+            INNER JOIN skill_level sl ON s.skill_level=sl.id
+            WHERE s.first_name=:firstName AND s.last_name=:lastName AND s.student_id=:studentID");
          $statement->bindValue(":firstName", $firstName, PDO::PARAM_STR);
          $statement->bindValue(":lastName", $lastName, PDO::PARAM_STR);
          $statement->bindValue(":studentID", $studentID, PDO::PARAM_INT);
@@ -116,16 +130,27 @@
          
          if($row = $statement->fetch(PDO::FETCH_ASSOC))
          {
-            echo "<h2>Showing registry information for " . $row['first_name'] . " " 
-               . $row['last_name'] . ":</h2>";
-            echo "<p>Performance Type: <strong>" . $row['type'] . "</strong></p>";
-            echo "<p>Skill Level: <strong>" . $row['skill_level'] . "</strong></p>";
-            echo "<p>Building: <strong>" . $row['name'] . "</strong></p>";
-            echo "<p>Room #: <strong>" . $row['room_num'] . "</strong></p>";
+            $firstName = $row['first_name'];
+            $lastName = $row['last_name'];
+            $studentID = $row['student_id'];
+            $type = $row['type'];
+            $level = $row['skill_level'];
+            $building = $row['building_name'];
+            $roomNum = $row['room_num'];
             $dateTime = explode(" ", $row['time']);
-            echo "<p>Date: <strong>" . $dateTime[0] . "</strong></p>";
-            echo "<p>Time: <strong>" . $dateTime[1] . "</strong></p>";
-            echo "<p>See any errors? Click <a href='updateRegistry.php'>here</a> to change any information.</p>";
+            $dateOnly = $dateTime[0];
+            $timeOnly = $dateTime[1];
+            echo "<h2>Showing registry information for $firstName $lastName:</h2>";
+            echo "<p>Performance Type: <strong>$type</strong></p>";
+            echo "<p>Skill Level: <strong>$level</strong></p>";
+            echo "<p>Building: <strong>$building</strong></p>";
+            echo "<p>Room #: <strong>$roomNum</strong></p>";
+            echo "<p>Date: <strong>$dateOnly</strong></p>";
+            echo "<p>Time: <strong>$timeOnly</strong></p>";
+            echo "<p>See any errors? Click <a href='updateRegistry.php?firstName=$firstName&lastName=$lastName&".
+               "studentID=$studentID&type=$type&level=$level&building=$building&roomNum=$roomNum&dateOnly=$dateOnly&".
+               "timeOnly=$timeOnly'>here</a>
+               to change any information.</p>";
             
          }
          else
