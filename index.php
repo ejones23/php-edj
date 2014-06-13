@@ -34,7 +34,7 @@
             come to the right place!<br/><br/>
          <b>Hobby #1:</b> Looking at planets through my telescope. Talk about stellar!<br/><br/>
          <b>Hobby #2:</b> Foraging for wild and edible plants. (Hey, I've got to cut the college food budget somewhere...)<br/><br/>
-         <b>Hobby #3:</b> Playing piano. Classical pieces ROCK! (Not literally, of course...)<br/><br/>
+         <b>Hobby #3:</b> Playing piano. Classical music ROCKS! (Not literally, of course...)<br/><br/>
          <b>Hobby #4:</b> Coding for the Web! I love seeing changes reflected so fast.<br/><br/>
          Click on the links to the left to explore the site. Please, enjoy your visit!<br/><br/>
       </p>
