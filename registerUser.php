@@ -77,10 +77,10 @@
       
       $passwordHashed = password_hash($newPassword, PASSWORD_DEFAULT);
       var_dump($passwordHashed);
+      echo "Yes, this shows.\n";
       
-      /*
       require("dbConnector.php");
-      
+      /*
       try
       {
          $db = loadDatabase('music_festival');
