@@ -70,11 +70,16 @@
 <?php
    if(isset($_GET['newPassword']))
    {
+      echo "newPassword is set\n";
+      
       $username = $_GET['username'];
       $newPassword = $_GET['newPassword'];
+      
+      echo "newPassword and username are retrieved\n";
       $passwordHashed = password_hash($newPassword, PASSWORD_DEFAULT);
       
-      echo "Line 77";
+      echo "newPassword is hashed\n"
+      
       /*
       require("dbConnector.php");
       
