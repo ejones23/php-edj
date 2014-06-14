@@ -74,6 +74,8 @@
       $newPassword = $_GET['newPassword'];
       $passwordHashed = password_hash($newPassword, PASSWORD_DEFAULT);
       
+      echo "Line 77";
+      /*
       require("dbConnector.php");
       
       try
@@ -100,8 +102,9 @@
       catch (PDOException $ex)
       {
          print "Error!: " . $ex->getMessage() . "<br />";
-         //die();
+         die();
       }
+      */
    }
 ?>
    <div class="container">
