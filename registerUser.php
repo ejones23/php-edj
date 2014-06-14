@@ -68,15 +68,14 @@
    </head>
 <body>
 <?php
+   require('password.php');
+   
    if(isset($_GET['newPassword']))
    {  
       $username = $_GET['username'];
       $newPassword = $_GET['newPassword'];
-      var_dump($username);
-      var_dump($newPassword);
       
       $passwordHashed = password_hash($newPassword, PASSWORD_DEFAULT);
-      var_dump($passwordHashed);
       
       require("dbConnector.php");
       
