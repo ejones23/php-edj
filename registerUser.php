@@ -77,13 +77,13 @@
       
       $passwordHashed = password_hash($newPassword, PASSWORD_DEFAULT);
       var_dump($passwordHashed);
-      echo "Yes, this shows.\n";
       
       require("dbConnector.php");
-      /*
+      
       try
       {
          $db = loadDatabase('music_festival');
+         var_dump($db);
          
          $statement = $db->prepare("INSERT INTO user(username, password_hashed) 
             VALUES (:username, :passwordHashed);");     
@@ -107,7 +107,6 @@
          print "Error!: " . $ex->getMessage() . "<br />";
          die();
       }
-      */
    }
 ?>
    <div class="container">
