@@ -9,7 +9,6 @@
       <script src="form.js"></script>
       <link rel="stylesheet" href="form.css"/>
       <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
-      <title>Festival Verification</title>
       <?php
          function fail()
          {
@@ -45,6 +44,8 @@
             if(password_verify($password, $row['password_hashed']))
             {
                $_SESSION['loggedIn'] = TRUE;
+               
+               //TODO: add logout capability
                
                header("Location: register.php");
                die();
@@ -99,6 +100,8 @@
            </div>
            <br />
            <input type="submit" class="btn btn-primary" value="Login"/>
+           <br />
+           <h4>New user? Click <a href="registerUser.php">here</a> to register.</h4>
        </form>
 
    </div><!--/.container-->
