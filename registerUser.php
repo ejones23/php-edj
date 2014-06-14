@@ -100,7 +100,7 @@
       catch (PDOException $ex)
       {
          print "Error!: " . $ex->getMessage() . "<br />";
-         die();
+         //die();
       }
    }
 ?>
