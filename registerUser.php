@@ -82,7 +82,6 @@
       try
       {
          $db = loadDatabase('music_festival');
-         var_dump($db);
          
          $statement = $db->prepare("INSERT INTO user(username, password_hashed) 
             VALUES (:username, :passwordHashed);");     
